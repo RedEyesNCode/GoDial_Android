@@ -23,9 +23,42 @@
             app:titleTextColor="@color/white"
             app:menu="@menu/toolbar_menu"
             android:background="@color/green_dark"
-            app:title="GoZulix" />
+            app:title="GoZulix" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/normalTextView"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:text="@string/app_name"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/imageButton"
+                    android:layout_marginEnd="@dimen/_7sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/list_default"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:textColor="@color/green_3"
+                    android:fontFamily="@font/sn_medium"
+                    android:drawableTint="@color/green_3"
+
+                    android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                    android:background="@drawable/background_white_rounded"
+                    android:contentDescription="Your Image Button" />
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_bumble"
         android:name="androidx.navigation.fragment.NavHostFragment"

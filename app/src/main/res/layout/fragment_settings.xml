@@ -1,14 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.fragments.FragmentSettings">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivProfile"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:id="@+id/ivProfileProceed"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Profile"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivReport"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvReportsLegacy"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivReport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Reports (Legacy)"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivAttendance"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvAttendence"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivAttendance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Attendance Reports"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivTemplate"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvTemplate"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivTemplate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Templates"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivTeam"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvTeam"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivTeam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Team and Members"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivSubs"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvReports"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivSubs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Subscription"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivAnalytics"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvReportsAndAnalytics"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivAnalytics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Reports \u0026 Analytics"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivSettings"
+                    android:src="@drawable/baseline_settings_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvDiagnostics"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="Diagnostics"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/ivEarn"
+                    android:src="@drawable/baseline_account_box_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:rotation="-90"
+                    app:tint="@color/grey"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_height="@dimen/_25sdp"/>
+                <TextView
+                    android:id="@+id/tvEarn"
+                    style="@style/smallTextView"
+                    android:layout_toEndOf="@id/ivEarn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="GoZulix Earn"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/grey"
+                android:layout_height="@dimen/_1sdp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/_165sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/raleway_semibold"
+                android:id="@+id/btnLogin"
+                android:layout_margin="@dimen/_8sdp"
+                android:layout_gravity="center"
+                android:drawableTint="@color/white"
+                android:padding="@dimen/_15sdp"
+                android:text="LOGOUT"
+                android:drawableStart="@drawable/baseline_logout_24"
+                android:textColor="@color/white"
+                android:background="@drawable/background_green_card"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
