@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        style="@style/BigTextView"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+
+        android:textColor="@color/black"
+        android:text="Login"
+        android:fontFamily="@font/raleway_bold"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutUsername"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_12sdp"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/green_3"
+        app:hintTextColor="@color/green_3"
+        app:hintEnabled="true"
+        android:textColorHint="@color/black"
+
+        app:boxStrokeWidth="@dimen/_2sdp"
+        app:startIconDrawable="@drawable/baseline_account_box_24"> <!-- Set the start icon drawable -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username / Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_12sdp"
+        app:hintTextColor="@color/green_3"
+
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/green_3"
+        app:boxStrokeWidth="@dimen/_2sdp"
+        android:textColorHint="@color/black"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/baseline_lock_24"> <!-- Set the start icon drawable -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_semibold"
+            android:id="@+id/btnLogin"
+            android:layout_margin="@dimen/_8sdp"
+
+            android:text="LOGIN"
+            android:textColor="@color/white"
+            android:background="@drawable/background_green_card"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_semibold"
+            android:layout_margin="@dimen/_8sdp"
+
+            android:text="CANCEL"
+            android:id="@+id/btnCancel"
+            android:textColor="@color/green_3"
+            android:background="@drawable/background_white_rounded"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        style="@style/normalTextView"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+
+        android:textColor="@color/green_3"
+        android:text="Forgot Password?"
+        android:gravity="start"
+        android:fontFamily="@font/sn_regular"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

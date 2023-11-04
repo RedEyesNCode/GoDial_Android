@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_dialer"
+    android:id="@+id/nav_graph.xml">
+    <fragment
+        android:id="@+id/fragment_dialer"
+        android:name="com.redeyesncode.gozulix.ui.fragments.FragmentDialer"
+        android:label="fragment_match"
+        tools:layout="@layout/fragment_dialer" >
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_crm"
+        android:name="com.redeyesncode.gozulix.ui.fragments.FragmentCrm"
+        android:label="fragment_match"
+        tools:layout="@layout/fragment_dialer" >
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_tasks"
+        android:name="com.redeyesncode.gozulix.ui.fragments.FragmentTasks"
+        android:label="fragment_match"
+        tools:layout="@layout/fragment_dialer" >
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.redeyesncode.gozulix.ui.fragments.FragmentSettings"
+        android:label="fragment_match"
+        tools:layout="@layout/fragment_dialer" >
+    </fragment>
+</navigation>

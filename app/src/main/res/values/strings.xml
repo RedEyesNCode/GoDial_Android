@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GoZulix</string>
+    <string name="setup_your_call_center">Setup your Call Center</string>
+    <string name="auto_dialer_and_crm_import_your_contacts_or_connect_your_lead_sources_auto_distribute_leads_track_and_monitor_calls">Auto Dialer and CRM.Import your contacts or connect your lead sources.Auto distribute leads.Track and monitor calls</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

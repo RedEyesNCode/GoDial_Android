@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.PermissionActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                style="@style/normalTextView"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Welcome to GoZulix"
+
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_mello_hie"
+
+                android:layout_height="@dimen/_100sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                style="@style/smallTextView"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="GoZulix requires these following permissions to work properly.Kindly check each on these permissions and enable them"
+                android:fontFamily="@font/raleway_semibold"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/recvPermission"
+                tools:listitem="@layout/item_permission"
+                android:nestedScrollingEnabled="false"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:fontFamily="@font/raleway_semibold"
+                android:layout_margin="@dimen/_8sdp"
+                android:id="@+id/btnFinish"
+
+                android:text="Finish"
+                android:textColor="@color/white"
+                android:background="@drawable/background_green_card"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

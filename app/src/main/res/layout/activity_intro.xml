@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_green_gradient"
+    android:layout_height="match_parent"
+    tools:context=".ui.IntroActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        style="@style/BigTextView"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:text="@string/setup_your_call_center"
+        android:fontFamily="@font/raleway_semibold"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        style="@style/smallTextView"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:text="@string/auto_dialer_and_crm_import_your_contacts_or_connect_your_lead_sources_auto_distribute_leads_track_and_monitor_calls"
+        android:fontFamily="@font/raleway_semibold"
+        android:layout_height="wrap_content"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        app:tabIndicatorColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:fontFamily="@font/raleway_semibold"
+        android:layout_margin="@dimen/_8sdp"
+        android:id="@+id/btnLogin"
+
+        android:text="LOGIN"
+        android:textColor="@color/green_light"
+        android:background="@drawable/background_white_rounded"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        style="@style/smallTextView"
+        android:layout_gravity="center"
+        android:padding="@dimen/_7sdp"
+        android:textColor="@color/white"
+        android:text="FOR COMPANY OWNER"
+        android:fontFamily="@font/raleway_semibold"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
