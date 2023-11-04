@@ -5,7 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.redeyesncode.gozulix.R
+import com.redeyesncode.gozulix.data.CalendarDate
+import com.redeyesncode.gozulix.databinding.FragmentTasksBinding
+import com.redeyesncode.gozulix.ui.adapters.CalendarAdapter
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +28,7 @@ class FragmentTasks : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var binding:FragmentTasksBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +43,13 @@ class FragmentTasks : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tasks, container, false)
+
+        binding = FragmentTasksBinding.inflate(layoutInflater)
+        val data = generateCalendarDatesForYearWithStartingMonth(2023,10)
+        binding.recvCalender.adapter = CalendarAdapter(data)
+        binding.recvCalender.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
+        return binding.root
     }
 
     companion object {
@@ -56,5 +70,21 @@ class FragmentTasks : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun generateCalendarDatesForYearWithStartingMonth(year: Int, startingMonth: Int): List<CalendarDate> {
+        val calendarDates = mutableListOf<CalendarDate>()
+        val calendar = Calendar.getInstance()
+        calendar.set(year, startingMonth, 1) // Set to the desired starting month
+        val dateFormat = SimpleDateFormat("EEEE", Locale.getDefault())
+
+        while (calendar.get(Calendar.YEAR) == year && calendar.get(Calendar.MONTH) <= startingMonth + 2) {
+            val weekday = dateFormat.format(calendar.time)
+            val date = calendar.get(Calendar.DAY_OF_MONTH).toString()
+            val monthName = SimpleDateFormat("MMMM", Locale.getDefault()).format(calendar.time)
+            calendarDates.add(CalendarDate(weekday, date, monthName))
+            calendar.add(Calendar.DAY_OF_MONTH, 1)
+        }
+
+        return calendarDates
     }
 }
