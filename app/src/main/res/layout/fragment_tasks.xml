@@ -15,9 +15,8 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/tvTitle"
         android:layout_alignParentTop="true"
-
         android:textColor="@color/black"
-        android:text="Tasks"
+        android:text="@string/tasks"
         android:fontFamily="@font/raleway_bold"
         android:layout_height="wrap_content"/>
 
