@@ -9,9 +9,10 @@ import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.ActivityIntroBinding
 import com.redeyesncode.gozulix.ui.activity.LoginActivity
 import com.redeyesncode.gozulix.ui.adapters.ImageAdapter
+import com.redeyesncode.redbet.base.BaseActivity
 
 
-class IntroActivity : AppCompatActivity() {
+class IntroActivity : BaseActivity() {
 
     lateinit var binding:ActivityIntroBinding
     override fun onCreate(savedInstanceState: Bundle?) {

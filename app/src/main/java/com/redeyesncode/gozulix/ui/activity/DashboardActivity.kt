@@ -6,8 +6,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.ActivityDashboardBinding
+import com.redeyesncode.redbet.base.BaseActivity
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : BaseActivity() {
     lateinit var binding:ActivityDashboardBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
