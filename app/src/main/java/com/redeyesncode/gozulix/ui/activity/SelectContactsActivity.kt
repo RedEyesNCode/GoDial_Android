@@ -2,16 +2,20 @@ package com.redeyesncode.gozulix.ui.activity
 
 import android.content.ContentResolver
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.widget.SearchView
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.data.ContactItem
 import com.redeyesncode.gozulix.databinding.ActivitySelectContactsBinding
+import com.redeyesncode.gozulix.room.ContactDatabase
+import com.redeyesncode.gozulix.room.ContactEntity
 import com.redeyesncode.gozulix.ui.adapters.MyContactAdapter
 import com.redeyesncode.redbet.base.BaseActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Locale
 
 class SelectContactsActivity : BaseActivity() {
@@ -33,9 +37,8 @@ class SelectContactsActivity : BaseActivity() {
     private fun initClicks() {
         binding.btnOk.setOnClickListener {
             val selectedContacts = contactAdapter.getSelectedContacts()
-
+            finish()
         }
-
     }
 
     private fun setupSearchView() {
@@ -84,13 +87,41 @@ class SelectContactsActivity : BaseActivity() {
             finish()
         }
         binding.btnOk.setOnClickListener {
+
             // check the list and update the room db logic.
+            val selectedContacts = contactAdapter.getSelectedContacts()
+
+            lifecycleScope.launch {
+                insertContact(selectedContacts)
+            }
 
 
         }
         contactAdapter = MyContactAdapter(this@SelectContactsActivity,contactList)
         binding.recvContacts.adapter = contactAdapter
         binding.recvContacts.layoutManager = LinearLayoutManager(this@SelectContactsActivity,LinearLayoutManager.VERTICAL,false)
+
+
+    }
+
+    suspend fun insertContact(selectedContacts: List<ContactItem>) {
+        val contactDatabase = ContactDatabase.getDatabase(applicationContext)
+        val contactDao = contactDatabase.contactDao()
+
+        if(selectedContacts.isNotEmpty()){
+            for(contact in selectedContacts){
+                val newContact = ContactEntity(
+                    contactName = contact.contactName,
+                    contactNumber = contact.contactNumber,
+                    status = "Pending",
+                    note = "No Note Present"
+                )
+                withContext(Dispatchers.IO) {
+                    contactDao.insert(newContact)
+
+                }
+            }
+        }
 
 
     }
