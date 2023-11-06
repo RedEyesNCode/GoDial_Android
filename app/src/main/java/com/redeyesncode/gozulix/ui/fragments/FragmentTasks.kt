@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.data.CalendarDate
@@ -63,13 +64,13 @@ class FragmentTasks : BaseFragment() {
         val contactDatabase = ContactDatabase.getDatabase(fragmentContext)
         val contactDao = contactDatabase.contactDao()
 
-        pendingContacts = contactDao.getPendingContacts()
+        pendingContacts = contactDao.getAllContacts()
 
         if(pendingContacts.isEmpty()){
             showMessageDialog("NO CONTACTS ARE ADDED","DIALER")
         }else {
             binding.recvContactEntity.adapter = ContactStatusAdapter(fragmentContext,pendingContacts)
-            binding.recvContactEntity.layoutManager = LinearLayoutManager(fragmentContext,LinearLayoutManager.VERTICAL,false)
+            binding.recvContactEntity.layoutManager =  GridLayoutManager(requireContext(),2)
         }
 
     }

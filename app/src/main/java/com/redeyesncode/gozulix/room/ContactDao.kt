@@ -33,5 +33,5 @@ interface ContactDao {
     fun getDoneStatusContacts():List<ContactEntity>
 
     @Query("SELECT * FROM contacts WHERE contact_number = :number")
-    fun findContactByNumber(number: String): ContactEntity
+    fun findContactByNumber(number: String): ContactEntity?
 }

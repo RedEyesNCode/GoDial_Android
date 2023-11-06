@@ -94,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_8sdp"
         android:layout_weight="1"
-        android:background="@drawable/background_green_card"
         android:drawableTint="@color/white"
         android:paddingHorizontal="@dimen/_35sdp"
         android:drawableStart="@drawable/baseline_phone_24"

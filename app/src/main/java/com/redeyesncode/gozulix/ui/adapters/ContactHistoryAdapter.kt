@@ -3,9 +3,11 @@ package com.redeyesncode.gozulix.ui.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.data.ContactHistoryItem
 import com.redeyesncode.gozulix.databinding.ItemCallHistoryBinding
 
@@ -44,10 +46,19 @@ class ContactHistoryAdapter(var context: Context,var contactHistoryList: List<Co
                 tvContactNumber.text = item.callNumber
 
             }
+            tvContactHint.text = item.contactName[0].toString()
             tvContactNumber.text = item.contactName
 
             tvContactTime.text = item.contactDuration
-            btnCallType.text = item.callType
+            if(item.callType.equals("OUTGOING")){
+                btnCallType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.baseline_call_made_24))
+            }else if(item.callType.equals("MISSED")){
+                btnCallType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.baseline_call_missed_24))
+
+            }else if(item.callType.equals("INCOMING")){
+                btnCallType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.baseline_call_received_24))
+
+            }
             tvContactTime.text = item.callDate
             tvCallDuration.text = "Duration ${item.contactDuration}"
 

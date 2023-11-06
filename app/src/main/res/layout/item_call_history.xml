@@ -3,36 +3,62 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_6sdp"
-    android:background="@drawable/background_green_card"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivContactImage"
-        android:layout_margin="@dimen/_7sdp"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:src="@drawable/baseline_account_box_24"
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/green_3"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="@dimen/_1sdp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/green_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="@dimen/_1sdp"/>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+
+
+
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_7sdp"
+        app:cardBackgroundColor="@color/yellow"
         app:layout_constraintBottom_toBottomOf="@+id/tvContactNumber"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvContactNumber"
-        app:tint="@color/green_3" />
+        app:layout_constraintTop_toTopOf="@+id/tvContactNumber">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/sn_bold"
+            android:textSize="@dimen/_18sdp"
+            android:id="@+id/tvContactHint"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvContactNumber"
-        style="@style/BigTextView"
+        style="@style/smallTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/sn_bold"
         android:text="@string/number"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/ivContactImage"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/btnCallType"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvCallDuration"
         style="@style/normalTextView"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -42,26 +68,30 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCallType" />
+
     <TextView
         android:id="@+id/tvContactTime"
-        style="@style/smallTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/sn_bold"
+        android:paddingBottom="@dimen/_12sdp"
         android:text="@string/nov_6_10_25pm"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/ivContactImage"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvContactNumber"
         app:layout_constraintTop_toBottomOf="@+id/tvContactNumber" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/btnCallType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
         android:text="OUTGOING"
-
+        app:tint="@color/green_3"
+        android:src="@drawable/baseline_call_made_24"
         android:textSize="@dimen/_14sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView2"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView2"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

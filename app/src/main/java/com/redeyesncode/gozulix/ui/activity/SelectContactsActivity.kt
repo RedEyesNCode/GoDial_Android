@@ -111,13 +111,20 @@ class SelectContactsActivity : BaseActivity() {
                     status = "Pending",
                     note = "No Note Present"
                 )
-                withContext(Dispatchers.IO) {
-                    contactDao.insertOrUpdate(newContact)
+                if(contactDao.findContactByNumber(contact.contactNumber)==null){
+                    withContext(Dispatchers.IO) {
+                        contactDao.insertOrUpdate(newContact)
 
+                    }
                 }
+
             }
+            val resultIntent = Intent()
+            resultIntent.putExtra("action", "save")
+            setResult(RESULT_OK, resultIntent)
             finish()
         }
+
 
 
 

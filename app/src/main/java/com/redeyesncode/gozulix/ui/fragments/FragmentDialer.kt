@@ -7,6 +7,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
 import android.view.LayoutInflater
@@ -14,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.FragmentDialerBinding
 import com.redeyesncode.gozulix.room.ContactDatabase
 import com.redeyesncode.gozulix.room.ContactEntity
@@ -43,6 +46,7 @@ class FragmentDialer : BaseFragment() {
     lateinit var pendingContacts:List<ContactEntity>
     private var previousCallState = TelephonyManager.CALL_STATE_IDLE
     lateinit var countDownTimer: CountDownTimer
+    private val handler = Handler(Looper.getMainLooper())
 
     var isStarted = false
 
@@ -139,12 +143,13 @@ class FragmentDialer : BaseFragment() {
         }
         binding.fabAdd.setOnClickListener {
             val intent = Intent(requireContext(), SelectContactsActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent,88)
             activity?.overridePendingTransition(com.redeyesncode.gozulix.R.anim.slide_up, 0)
 
 
         }
         binding.btnStartDialer.setOnClickListener {
+
             if(!isStarted){
                 if(pendingContacts.isEmpty()){
                     showMessageDialog("No Contacts in Dialer","DIALER")
@@ -152,11 +157,14 @@ class FragmentDialer : BaseFragment() {
                 }else{
                     isStarted = true
                     startTimer()
+                    binding.btnStartDialer.setBackgroundColor(R.color.yellow)
+
                 }
             }else{
                 isStarted = false
                 countDownTimer.cancel()
                 binding.btnStartDialer.text = "START"
+                binding.btnStartDialer.setBackgroundColor(R.color.green_3)
 
             }
 
@@ -178,11 +186,13 @@ class FragmentDialer : BaseFragment() {
                 // Update the TextView with the remaining time
                 val secondsRemaining = (millisUntilFinished / 1000).toInt()
                 binding.btnStartDialer.text = "Dialing in.. ${secondsRemaining.toString()}"
+                binding.btnStartDialer.setBackgroundColor(R.color.yellow)
             }
 
             override fun onFinish() {
                 // Countdown has finished, perform any action here
                 binding.btnStartDialer.text = "START"
+                binding.btnStartDialer.setBackgroundColor(R.color.green_3)
 
                 val intent = Intent(fragmentContext,DisposeCallActivity::class.java)
                 intent.putExtra("NUMBER",pendingContacts[0].contactNumber)
@@ -195,7 +205,23 @@ class FragmentDialer : BaseFragment() {
 
         countDownTimer.start()
     }
+    private fun startShakeAnimation(cardView: View) {
+        val animationDuration = 500L // Duration for each shake animation
+        val repeatDelay = 1000L // Delay between shake animations
 
+        val runnable = object : Runnable {
+            override fun run() {
+                // Start the shake animation
+                shakeCardView(cardView)
+
+                // Repeat the animation with a delay
+                handler.postDelayed(this, animationDuration + repeatDelay)
+            }
+        }
+
+        // Start the first animation
+        handler.post(runnable)
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==77){
@@ -220,6 +246,9 @@ class FragmentDialer : BaseFragment() {
 
                 }
             }
+        }else if(requestCode==88){
+            setupRoomDb()
+
         }
     }
     fun shakeCardView(cardView: View) {

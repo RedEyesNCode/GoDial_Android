@@ -48,14 +48,18 @@
 
                 <Button
                     android:layout_width="0dp"
+                    android:layout_margin="@dimen/_10sdp"
                     android:id="@+id/btnOne"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
+                    android:backgroundTint="@color/green_3"
                     android:text="1" />
 
                 <Button
                     android:layout_width="0dp"
                     android:id="@+id/btnTwo"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
 
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -66,12 +70,18 @@
                     android:id="@+id/btnThree"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:text="3" />
 
                 <Button
                     android:layout_width="0dp"
                     android:id="@+id/btnFour"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:layout_columnWeight="1"
                     android:text="4" />
                 <Button
@@ -79,21 +89,33 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/btnFive"
                     android:layout_columnWeight="1"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:text="5" />
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:id="@+id/btnSix"
                     android:text="6" />
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnSeven"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:layout_columnWeight="1"
                     android:text="7" />
                 <Button
                     android:layout_width="0dp"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:id="@+id/btnEight"
@@ -102,10 +124,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnNine"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:layout_columnWeight="1"
                     android:text="9" />
                 <ImageView
                     android:layout_width="0dp"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:src="@drawable/baseline_backspace_24"
                     android:paddingVertical="@dimen/_8sdp"
                     android:id="@+id/btnDelete"
@@ -117,12 +144,18 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:id="@+id/btnZero"
+                    android:backgroundTint="@color/green_3"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:text="0" />
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="0dp"
                     android:src="@drawable/baseline_phone_24"
                     android:paddingVertical="@dimen/_8sdp"
                     android:id="@+id/btnCall"
+                    android:backgroundTint="@color/yellow"
+                    android:layout_margin="@dimen/_10sdp"
+
                     android:drawableStart="@drawable/baseline_phone_24"
                     android:textColor="@color/black"
                     android:text="Call"
