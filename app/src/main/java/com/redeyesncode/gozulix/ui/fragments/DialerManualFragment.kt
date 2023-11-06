@@ -1,6 +1,9 @@
 package com.redeyesncode.gozulix.ui.fragments
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -28,6 +31,8 @@ class DialerManualFragment : BaseFragment() {
 
     private lateinit var binding:FragmentManualDialerBinding
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -46,7 +51,22 @@ class DialerManualFragment : BaseFragment() {
         binding = FragmentManualDialerBinding.inflate(inflater,container,false)
         setupDialerEditText()
 
+
+        initClicks()
+
         return binding.root
+    }
+
+    private fun initClicks() {
+        binding.btnCall.setOnClickListener {
+            if(binding.editTextPhoneNumber.text.toString().length==10){
+                makePhoneCall(binding.editTextPhoneNumber.text.toString())
+            }else{
+                showMessageDialog("INVALID NUMBER","Information")
+            }
+
+        }
+
     }
 
     private fun setupDialerEditText() {
@@ -118,7 +138,12 @@ class DialerManualFragment : BaseFragment() {
             binding.editTextPhoneNumber.setText(currentText.substring(0, currentText.length - 1))
         }
     }
-
+    fun makePhoneCall(phoneNumber: String) {
+        // Check for the CALL_PHONE permission before making the call
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:$phoneNumber")
+        startActivity(callIntent)
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

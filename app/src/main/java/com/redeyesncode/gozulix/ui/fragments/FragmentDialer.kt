@@ -10,6 +10,7 @@ import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.FragmentDialerBinding
 import com.redeyesncode.gozulix.databinding.FragmentManualDialerBinding
 import com.redeyesncode.gozulix.ui.activity.DialerActivity
+import com.redeyesncode.gozulix.ui.activity.SelectContactsActivity
 import com.redeyesncode.pay2kart.base.BaseFragment
 
 // TODO: Rename parameter arguments, choose names that match
@@ -50,6 +51,13 @@ class FragmentDialer : BaseFragment() {
             startActivity(intent)
             activity?.overridePendingTransition(com.redeyesncode.gozulix.R.anim.slide_up, 0)
 
+
+
+        }
+        binding.fabAdd.setOnClickListener {
+            val intent = Intent(requireContext(), SelectContactsActivity::class.java)
+            startActivity(intent)
+            activity?.overridePendingTransition(com.redeyesncode.gozulix.R.anim.slide_up, 0)
 
 
         }

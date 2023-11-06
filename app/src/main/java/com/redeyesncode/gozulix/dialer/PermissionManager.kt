@@ -13,6 +13,8 @@ object PermissionManager {
     const val READ_PHONE_STATE_PERMISSION_REQUEST_CODE = 3
     const val READ_CONTACTS_PERMISSION_REQUEST_CODE = 4
     const val WRITE_CONTACTS_PERMISSION_REQUEST_CODE = 5
+    const val READ_CALL_LOG_PERMISSION_REQUEST_CODE = 6
+    const val WRITE_CALL_LOG_PERMISSION_REQUEST_CODE = 7
 
     fun requestCallPhonePermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -38,6 +40,17 @@ object PermissionManager {
     fun requestWriteContactsPermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.WRITE_CONTACTS), WRITE_CONTACTS_PERMISSION_REQUEST_CODE)
+        }
+    }
+    fun requestReadCallLogPermission(activity: Activity) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.READ_CALL_LOG), READ_CALL_LOG_PERMISSION_REQUEST_CODE)
+        }
+    }
+
+    fun requestWriteCallLogPermission(activity: Activity) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.WRITE_CALL_LOG), WRITE_CALL_LOG_PERMISSION_REQUEST_CODE)
         }
     }
 }

@@ -89,7 +89,32 @@ class PermissionActivity : BaseActivity(),PermissionAdapter.onPermission {
                     showSnackbar("PERMISSION IS DENIED")
                 }
             }
+
             PermissionManager.ANSWER_PHONE_CALLS_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
+                    showSnackbar("PERMISSION IS GRANTED")
+                    PermissionManager.requestReadCallLogPermission(this)
+
+                } else {
+                    // ANSWER_PHONE_CALLS permission denied, handle accordingly
+                    showSnackbar("PERMISSION IS DENIED")
+
+                }
+            }
+            PermissionManager.READ_CALL_LOG_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
+                    showSnackbar("PERMISSION IS GRANTED")
+                    PermissionManager.requestWriteCallLogPermission(this)
+
+                } else {
+                    // ANSWER_PHONE_CALLS permission denied, handle accordingly
+                    showSnackbar("PERMISSION IS DENIED")
+
+                }
+            }
+            PermissionManager.WRITE_CALL_LOG_PERMISSION_REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
                     showSnackbar("PERMISSION IS GRANTED")

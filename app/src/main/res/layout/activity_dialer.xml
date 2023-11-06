@@ -9,7 +9,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/rechargeTabs"
         android:layout_width="match_parent"
-        app:tabMode="scrollable"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@color/green_3"
         app:tabIndicatorAnimationMode="elastic"
         app:tabTextColor="@color/black"
