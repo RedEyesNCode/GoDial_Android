@@ -9,7 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.data.CalendarDate
 import com.redeyesncode.gozulix.databinding.FragmentTasksBinding
+import com.redeyesncode.gozulix.room.ContactDatabase
+import com.redeyesncode.gozulix.room.ContactEntity
 import com.redeyesncode.gozulix.ui.adapters.CalendarAdapter
+import com.redeyesncode.gozulix.ui.adapters.ContactStatusAdapter
+import com.redeyesncode.pay2kart.base.BaseFragment
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -24,11 +28,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FragmentTasks.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentTasks : Fragment() {
+class FragmentTasks : BaseFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     lateinit var binding:FragmentTasksBinding
+    lateinit var pendingContacts:List<ContactEntity>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +54,24 @@ class FragmentTasks : Fragment() {
         binding.recvCalender.adapter = CalendarAdapter(data)
         binding.recvCalender.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
+
+        setupContactTable()
         return binding.root
+    }
+
+    private fun setupContactTable() {
+        val contactDatabase = ContactDatabase.getDatabase(fragmentContext)
+        val contactDao = contactDatabase.contactDao()
+
+        pendingContacts = contactDao.getPendingContacts()
+
+        if(pendingContacts.isEmpty()){
+            showMessageDialog("NO CONTACTS ARE ADDED","DIALER")
+        }else {
+            binding.recvContactEntity.adapter = ContactStatusAdapter(fragmentContext,pendingContacts)
+            binding.recvContactEntity.layoutManager = LinearLayoutManager(fragmentContext,LinearLayoutManager.VERTICAL,false)
+        }
+
     }
 
     companion object {

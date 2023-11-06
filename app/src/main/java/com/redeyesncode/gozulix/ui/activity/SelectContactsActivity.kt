@@ -2,6 +2,8 @@ package com.redeyesncode.gozulix.ui.activity
 
 import android.content.ContentResolver
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.widget.SearchView
@@ -37,7 +39,9 @@ class SelectContactsActivity : BaseActivity() {
     private fun initClicks() {
         binding.btnOk.setOnClickListener {
             val selectedContacts = contactAdapter.getSelectedContacts()
-            finish()
+           lifecycleScope.launch {
+               insertContact(selectedContacts)
+           }
         }
     }
 
@@ -56,16 +60,7 @@ class SelectContactsActivity : BaseActivity() {
         })
 
     }
-    private fun collectSelectedContacts(): List<ContactItem> {
-        val selectedContacts = mutableListOf<ContactItem>()
-        for (contact in contactList) {
-            if (contact.selected) {
-                showToast("SELECTED")
-                selectedContacts.add(contact)
-            }
-        }
-        return selectedContacts
-    }
+
 
     fun filter(query: String) {
         val data = fetchContacts(this@SelectContactsActivity)
@@ -117,15 +112,22 @@ class SelectContactsActivity : BaseActivity() {
                     note = "No Note Present"
                 )
                 withContext(Dispatchers.IO) {
-                    contactDao.insert(newContact)
+                    contactDao.insertOrUpdate(newContact)
 
                 }
             }
+            finish()
         }
 
 
-    }
 
+    }
+    fun makePhoneCall(phoneNumber: String) {
+        // Check for the CALL_PHONE permission before making the call
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:$phoneNumber")
+        startActivity(callIntent)
+    }
     fun fetchContacts(context: Context): List<ContactItem> {
         val contactList = mutableListOf<ContactItem>()
         val contentResolver: ContentResolver = context.contentResolver

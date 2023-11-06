@@ -10,5 +10,5 @@ data class ContactEntity(
     @ColumnInfo(name = "contact_name") val contactName: String,
     @ColumnInfo(name = "contact_number") val contactNumber: String,
     @ColumnInfo(name = "status") val status: String, // Pending or Done
-    @ColumnInfo(name = "note") val note: String
+    @ColumnInfo(name = "note") var note: String
 )
