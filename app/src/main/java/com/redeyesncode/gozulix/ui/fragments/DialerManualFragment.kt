@@ -1,6 +1,9 @@
 package com.redeyesncode.gozulix.ui.fragments
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,9 +44,79 @@ class DialerManualFragment : BaseFragment() {
 
 
         binding = FragmentManualDialerBinding.inflate(inflater,container,false)
-
+        setupDialerEditText()
 
         return binding.root
+    }
+
+    private fun setupDialerEditText() {
+        binding.apply {
+            btnOne.setOnClickListener {
+                appendDigitToEditText("1")
+
+            }
+            btnTwo.setOnClickListener {
+                appendDigitToEditText("2")
+            }
+            btnThree.setOnClickListener {
+                appendDigitToEditText("3")
+
+            }
+            btnFour.setOnClickListener {
+                appendDigitToEditText("4")
+
+            }
+            btnFive.setOnClickListener {
+                appendDigitToEditText("5")
+            }
+            btnSix.setOnClickListener {
+                appendDigitToEditText("6")
+            }
+            btnSeven.setOnClickListener {
+                appendDigitToEditText("7")
+            }
+            btnEight.setOnClickListener {
+                appendDigitToEditText("8")
+            }
+            btnNine.setOnClickListener {
+                appendDigitToEditText("9")
+            }
+            btnDelete.setOnClickListener {
+                deleteLastDigitFromEditText()
+            }
+            btnZero.setOnClickListener {
+                appendDigitToEditText("0")
+            }
+        }
+
+        binding.editTextPhoneNumber.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val text = s.toString()
+                if (text.length < 10) {
+                    // Text is red if length is less than 10
+                    binding.editTextPhoneNumber.setTextColor(Color.RED)
+                } else {
+                    // Text is green if length is 10 or more
+                    binding.editTextPhoneNumber.setTextColor(Color.GREEN)
+                }
+            }
+        })
+
+    }
+    private fun appendDigitToEditText(digit: String) {
+        val currentText = binding.editTextPhoneNumber.text.toString()
+        binding.editTextPhoneNumber.setText(currentText + digit)
+    }
+
+    private fun deleteLastDigitFromEditText() {
+        val currentText = binding.editTextPhoneNumber.text.toString()
+        if (currentText.isNotEmpty()) {
+            binding.editTextPhoneNumber.setText(currentText.substring(0, currentText.length - 1))
+        }
     }
 
     companion object {

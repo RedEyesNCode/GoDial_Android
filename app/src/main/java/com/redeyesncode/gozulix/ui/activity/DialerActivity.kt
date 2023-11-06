@@ -17,6 +17,9 @@ class DialerActivity : BaseActivity() {
 
         binding = ActivityDialerBinding.inflate(layoutInflater)
         setupTabViewPager()
+
+
+
         setContentView(binding.root)
     }
     private fun setupTabViewPager() {

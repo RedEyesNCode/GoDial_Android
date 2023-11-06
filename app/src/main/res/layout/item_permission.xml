@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_margin="@dimen/_5sdp"
     android:padding="@dimen/_4sdp"
+    android:id="@+id/mainLayout"
     android:background="@drawable/background_grey_border"
     android:layout_height="wrap_content">
     <ImageView
@@ -17,7 +18,7 @@
     <ImageView
         android:layout_width="@dimen/_20sdp"
         android:src="@drawable/baseline_phone_24"
-        android:id="@+id/ivPhone"
+        android:id="@+id/ivDrawable"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_alignParentTop="true"
 
@@ -35,7 +36,7 @@
         android:textColor="@color/black"
         android:text="Phone"
         android:id="@+id/tvPermissionTitle"
-        android:layout_toEndOf="@id/ivPhone"
+        android:layout_toEndOf="@id/ivDrawable"
         android:fontFamily="@font/raleway_semibold"
         android:layout_height="wrap_content"/>
     <TextView
