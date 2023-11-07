@@ -4,11 +4,14 @@ import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.PhoneNumberUtils
 import android.telephony.SmsManager
 import android.widget.ArrayAdapter
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.ActivityDisposeCallBinding
@@ -178,6 +181,11 @@ class DisposeCallActivity : BaseActivity() {
             makePhoneCall(intent.getStringExtra("NUMBER").toString())
         }
 
+        binding.btnWhatsApp.setOnClickListener {
+            sendWhatsAppMessage(this@DisposeCallActivity,intent.getStringExtra("NUMBER").toString(),"HELLO_WELCOME_GO_ZULIX_CRM_ANDROID")
+
+        }
+
 
     }
     fun makePhoneCall(phoneNumber: String) {
@@ -186,4 +194,35 @@ class DisposeCallActivity : BaseActivity() {
         callIntent.data = Uri.parse("tel:$phoneNumber")
         startActivity(callIntent)
     }
+    fun sendWhatsAppMessage(context: Context, phoneNumber: String, message: String) {
+        try {
+            val packageManager = context.packageManager
+            val isWhatsAppInstalled = isAppInstalled("com.whatsapp", packageManager)
+
+            if (isWhatsAppInstalled) {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                intent.setPackage("com.whatsapp")
+                intent.putExtra(Intent.EXTRA_TEXT, message)
+                intent.putExtra("jid", PhoneNumberUtils.stripSeparators(phoneNumber) + "@s.whatsapp.net")
+
+                context.startActivity(intent)
+            } else {
+                // Handle the case when WhatsApp is not installed on the device.
+                Toast.makeText(context, "WhatsApp is not installed.", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun isAppInstalled(packageName: String, packageManager: PackageManager): Boolean {
+        return try {
+            packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
+            true
+        } catch (e: PackageManager.NameNotFoundException) {
+            false
+        }
+    }
+
 }

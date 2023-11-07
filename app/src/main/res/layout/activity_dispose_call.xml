@@ -59,8 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/sn_medium"
-            android:text="\u0026"
 
+            android:text="\u0026"
             android:textColor="@color/white"
             android:textSize="@dimen/_45sdp" />
 
@@ -222,4 +222,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnContact"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnWhatsApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/background_green_button"
+        android:drawableStart="@drawable/baseline_message_24"
+        android:drawableTint="@color/white"
+        android:text="WhatsApp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnContact" />
 </androidx.constraintlayout.widget.ConstraintLayout>
