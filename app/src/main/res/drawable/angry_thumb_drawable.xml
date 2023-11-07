@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background of the thumb (you can customize it) -->
+    <item android:id="@android:id/background">
+        <shape android:shape="oval">
+            <solid android:color="#FF0000" /> <!-- Customize the color -->
+        </shape>
+    </item>
+
+    <!-- Emoji image in the center of the thumb -->
+    <item android:id="@android:id/progress">
+        <inset
+            android:drawable="@drawable/thumb_10"
+        android:gravity="center"
+        />
+    </item>
+</layer-list>

@@ -13,4 +13,13 @@
     <string name="tasks">Tasks</string>
     <string name="number">6261319133</string>
     <string name="nov_6_10_25pm">Nov 6, 10:25PM</string>
+
+    <string-array name="call_dispose_options">
+        <item>INTERESTED</item>
+        <item>CALLBACK</item>
+        <item>DNC</item>
+        <item>SALE</item>
+        <item>UNREACHABLE</item>
+        <item>BUSY</item>
+    </string-array>
 </resources>

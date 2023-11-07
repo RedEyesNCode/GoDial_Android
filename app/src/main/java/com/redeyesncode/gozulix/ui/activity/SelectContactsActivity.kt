@@ -109,7 +109,10 @@ class SelectContactsActivity : BaseActivity() {
                     contactName = contact.contactName,
                     contactNumber = contact.contactNumber,
                     status = "Pending",
-                    note = "No Note Present"
+                    note = "No Note Present",
+                    leadScore = 60,
+                    callEvent = "INTERESTED"
+
                 )
                 if(contactDao.findContactByNumber(contact.contactNumber)==null){
                     withContext(Dispatchers.IO) {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/edtNote"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:gravity="top|start"
+        android:hint="Your Note"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvLeadScore" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_weight="1"
+
+        android:background="@drawable/background_yellow_button"
+        android:drawableStart="@drawable/baseline_note_add_24"
+        android:fontFamily="@font/raleway_semibold"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:text="SAVE NOTE"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNote" />
+</LinearLayout>

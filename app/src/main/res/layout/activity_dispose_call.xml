@@ -30,42 +30,107 @@
 
     <TextView
         android:id="@+id/tvCallNumber"
-        style="@style/normalTextView"
+        style="@style/smallTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/raleway_semibold"
+        android:fontFamily="@font/sn_medium"
         android:text="You Just Spoke to 6261319133"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <EditText
-        android:id="@+id/edtNote"
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="@dimen/_85sdp"
+        android:layout_height="@dimen/_85sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:background="@drawable/contact_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <TextView
+            android:id="@+id/tvContactHint"
+            style="@style/BigTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/sn_medium"
+            android:text="\u0026"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/_45sdp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/sn_medium"
+        android:text="\u0026"
+        android:textColor="@color/black"
+
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="top|start"
-        android:inputType="textMultiLine"
-        android:lines="8"
-        android:hint="Your Note"
-        android:maxLines="10"
-        android:minLines="6"
-        android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/tvCallNumber" />
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="What Happened on call"
+        android:layout_marginTop="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvContactName"
+        app:startIconDrawable="@drawable/baseline_phone_24">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnUpdate"
-        android:layout_width="match_parent"
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            tools:text="Interested" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLeadScore"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/sn_regular"
+        android:text="Lead Score :10 %"
+        android:textColor="@color/yellow"
 
-        android:layout_weight="1"
-        android:background="@drawable/background_green_button"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="UPDATE NOTE"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/edtNote"
-        tools:layout_editor_absoluteX="10dp" />
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:padding="@dimen/_15sdp"
+        android:thumb="@drawable/thumb_10"
+        android:progressDrawable="@drawable/seekbar"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -73,6 +138,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUpdate">
 
         <androidx.appcompat.widget.AppCompatButton
@@ -100,7 +167,59 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_weight="1"
 
+        android:background="@drawable/background_yellow_button"
+        android:drawableStart="@drawable/baseline_save_24"
+        android:fontFamily="@font/raleway_semibold"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:text="SAVE"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLeadScore" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/background_green_button"
+        android:drawableStart="@drawable/baseline_note_add_24"
+        android:text="NOTE"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/background_green_button"
+        android:drawableStart="@drawable/baseline_account_box_24"
+        android:drawableTint="@color/white"
+        android:text="Contact"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/btnNote"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/background_green_button"
+        android:drawableStart="@drawable/baseline_message_24"
+        android:drawableTint="@color/white"
+        android:text="Message"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnContact"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

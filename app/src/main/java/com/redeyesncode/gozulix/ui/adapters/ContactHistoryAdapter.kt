@@ -46,7 +46,6 @@ class ContactHistoryAdapter(var context: Context,var contactHistoryList: List<Co
                 tvContactNumber.text = item.callNumber
 
             }
-            tvContactHint.text = item.contactName[0].toString()
             tvContactNumber.text = item.contactName
 
             tvContactTime.text = item.contactDuration

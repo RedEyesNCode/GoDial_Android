@@ -82,12 +82,14 @@ class FragmentDialer : BaseFragment() {
 
         if(pendingContacts.isEmpty()){
             binding.textView.text = "Dialer is Empty"
-            binding.textView2.text = "No Contacts to Dial"
+            binding.tvContactName.text = ""
+            binding.tvContactNumber.text = ""
             showMessageDialog("No Contacts in Dialer","DIALER")
         }else{
             // load the service and start on Button click
-            binding.textView.text = "Dialing ${pendingContacts[0].contactName}"
-            binding.textView2.text = pendingContacts[0].contactNumber
+            binding.textView.text = "Dialing"
+            binding.tvContactNumber.text = "Number : ${pendingContacts[0].contactNumber}"
+            binding.tvContactName.text = "Name : ${pendingContacts[0].contactName}"
 
 
 

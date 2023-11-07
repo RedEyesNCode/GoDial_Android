@@ -27,4 +27,7 @@
         <item name="android:layout_margin">@dimen/_8sdp</item>
         <item name="android:padding">@dimen/_5sdp</item>
     </style>
+    <style name="FullScreenDialogStyle">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
 </resources>
