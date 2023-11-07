@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="wrap_content"
+        style="@style/BigTextView"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+
+        android:textColor="@color/black"
+        android:text="Save Number"
+        android:fontFamily="@font/raleway_bold"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutUsername"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_12sdp"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/green_3"
+        app:hintTextColor="@color/green_3"
+        app:hintEnabled="true"
+        android:textColorHint="@color/black"
+
+        app:boxStrokeWidth="@dimen/_2sdp"
+        app:startIconDrawable="@drawable/baseline_phone_24"> <!-- Set the start icon drawable -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPhone"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_12sdp"
+        app:hintTextColor="@color/green_3"
+
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/green_3"
+        app:boxStrokeWidth="@dimen/_2sdp"
+        android:textColorHint="@color/black"
+        app:startIconDrawable="@drawable/baseline_lock_24"> <!-- Set the start icon drawable -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtContactName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_7sdp"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:padding="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_semibold"
+            android:id="@+id/btnUpdate"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+
+            android:text="SAVE CONTACT"
+            android:drawablePadding="@dimen/_7sdp"
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/baseline_save_24"
+            android:background="@drawable/background_yellow_button"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_semibold"
+
+            android:text="CALL NUMBER"
+            android:id="@+id/btnCall"
+            android:textColor="@color/white"
+            android:background="@drawable/background_green_button"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

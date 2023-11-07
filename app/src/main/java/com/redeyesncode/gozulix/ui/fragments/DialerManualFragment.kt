@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.redeyesncode.gozulix.databinding.FragmentManualDialerBinding
+import com.redeyesncode.gozulix.ui.dialogs.SaveContactDialog
 import com.redeyesncode.pay2kart.base.BaseFragment
 
 // TODO: Rename parameter arguments, choose names that match
@@ -60,7 +61,8 @@ class DialerManualFragment : BaseFragment() {
     private fun initClicks() {
         binding.btnCall.setOnClickListener {
             if(binding.editTextPhoneNumber.text.toString().length==10){
-                makePhoneCall(binding.editTextPhoneNumber.text.toString())
+                val dialog = SaveContactDialog(binding.editTextPhoneNumber.text.toString())
+                dialog.show(requireFragmentManager(),"new_contact_dialog")
             }else{
                 showMessageDialog("INVALID NUMBER","Information")
             }

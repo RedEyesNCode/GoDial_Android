@@ -7,241 +7,255 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.FragmentDialer">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-
-        app:cardCornerRadius="@dimen/_9sdp"
-        app:cardElevation="@dimen/_8sdp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:layout_height="wrap_content">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_green_gradient"
-            android:padding="@dimen/_12sdp">
-
-            <TextView
-                android:id="@+id/textView"
-                style="@style/normalTextView"
-                android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="Dialer Empty"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
 
-            <TextView
-                android:id="@+id/tvContactNumber"
-                style="@style/normalTextView"
-                android:layout_width="wrap_content"
+                app:cardCornerRadius="@dimen/_9sdp"
+                app:cardElevation="@dimen/_8sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_green_gradient"
+                    android:padding="@dimen/_12sdp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/normalTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="Dialer Empty"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvContactNumber"
+                        style="@style/normalTextView"
+                        android:layout_width="wrap_content"
+                        android:drawableStart="@drawable/baseline_phone_24"
+                        android:layout_height="wrap_content"
+                        android:drawableTint="@color/white"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="No contacts to dial"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvContactName" />
+                    <TextView
+                        android:id="@+id/tvContactName"
+                        style="@style/BigTextView"
+                        android:layout_width="wrap_content"
+                        android:drawableStart="@drawable/baseline_account_box_24"
+                        android:layout_height="wrap_content"
+                        android:drawableTint="@color/white"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:text="@string/no_contacts_to_dial"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    <ImageView
+                        android:id="@+id/ivPhone"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:visibility="invisible"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/baseline_group_add_24"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvContactNumber"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        style="@style/smallTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:layout_alignParentTop="true"
+                        android:visibility="gone"
+
+                        android:text="@string/add_contacts"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStartDialer"
+                android:layout_width="@dimen/_165sdp"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:drawableTint="@color/white"
+                android:paddingHorizontal="@dimen/_35sdp"
                 android:drawableStart="@drawable/baseline_phone_24"
-                android:layout_height="wrap_content"
-                android:drawableTint="@color/white"
-                android:layout_gravity="center"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="No contacts to dial"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvContactName" />
-            <TextView
-                android:id="@+id/tvContactName"
-                style="@style/BigTextView"
-                android:layout_width="wrap_content"
-                android:drawableStart="@drawable/baseline_account_box_24"
-                android:layout_height="wrap_content"
-                android:drawableTint="@color/white"
-                android:layout_gravity="center"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="No contacts to dial"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-            <ImageView
-                android:id="@+id/ivPhone"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"
-                android:visibility="invisible"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/baseline_group_add_24"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvContactNumber"
-                app:tint="@color/white" />
-
-            <TextView
-                style="@style/smallTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableEnd="@drawable/baseline_add_24"
-                android:drawableTint="@color/white"
-                android:fontFamily="@font/raleway_semibold"
-                android:layout_alignParentTop="true"
-                android:visibility="invisible"
-
-                android:text="@string/add_contacts"
-                android:textAlignment="center"
+                android:text="@string/start"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_6sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnStartDialer">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_grey_solid"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        style="@style/BigTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/sn_regular"
+                        android:text="Pending"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/BigTextView"
+                        android:id="@+id/tvPendingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/sn_medium"
+                        android:text="0"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/background_grey_solid"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        style="@style/BigTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/sn_regular"
+                        android:text="Done"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/BigTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvDoneCount"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/sn_medium"
+                        android:text="0"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAdvancedSettings"
+                style="@style/normalTextView"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/baseline_settings_24"
+                android:fontFamily="@font/raleway_semibold"
+
+                android:text="Advanced"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_25sdp"
+                android:id="@+id/fabDialer"
+
+                android:backgroundTint="@color/green_3"
+                android:src="@drawable/baseline_phone_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_25sdp"
+                android:id="@+id/fabAdd"
+
+                android:backgroundTint="@color/green_3"
+                android:src="@drawable/baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/fabDialer"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </com.google.android.material.card.MaterialCardView>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnStartDialer"
-        android:layout_width="@dimen/_165sdp"
-        android:layout_marginHorizontal="@dimen/_25sdp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:layout_weight="1"
-        android:drawableTint="@color/white"
-        android:paddingHorizontal="@dimen/_35sdp"
-        android:drawableStart="@drawable/baseline_phone_24"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="Start"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartDialer">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_weight="1"
-            android:background="@drawable/background_grey_solid"
-            android:orientation="vertical"
-            android:padding="@dimen/_8sdp">
-
-            <TextView
-                style="@style/BigTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-
-                android:layout_gravity="center"
-                android:fontFamily="@font/sn_regular"
-                android:text="Pending"
-                android:textColor="@color/black" />
-
-            <TextView
-                style="@style/BigTextView"
-                android:id="@+id/tvPendingCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-
-                android:layout_gravity="center"
-                android:fontFamily="@font/sn_medium"
-                android:text="0"
-                android:textColor="@color/black" />
+    </ScrollView>
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-
-            android:layout_weight="1"
-            android:background="@drawable/background_grey_solid"
-            android:orientation="vertical"
-            android:padding="@dimen/_8sdp">
-
-            <TextView
-                style="@style/BigTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-
-                android:layout_gravity="center"
-                android:fontFamily="@font/sn_regular"
-                android:text="Done"
-                android:textColor="@color/black" />
-
-            <TextView
-                style="@style/BigTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvDoneCount"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-
-                android:layout_gravity="center"
-                android:fontFamily="@font/sn_medium"
-                android:text="0"
-                android:textColor="@color/black" />
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/normalTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:drawableStart="@drawable/baseline_settings_24"
-        android:fontFamily="@font/raleway_semibold"
-
-        android:text="Advanced"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_25sdp"
-        android:id="@+id/fabDialer"
-
-        android:backgroundTint="@color/green_3"
-        android:src="@drawable/baseline_phone_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_25sdp"
-        android:id="@+id/fabAdd"
-
-        android:backgroundTint="@color/green_3"
-        android:src="@drawable/baseline_add_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/fabDialer"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

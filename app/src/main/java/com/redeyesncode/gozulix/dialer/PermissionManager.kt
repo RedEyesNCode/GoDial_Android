@@ -15,6 +15,7 @@ object PermissionManager {
     const val WRITE_CONTACTS_PERMISSION_REQUEST_CODE = 5
     const val READ_CALL_LOG_PERMISSION_REQUEST_CODE = 6
     const val WRITE_CALL_LOG_PERMISSION_REQUEST_CODE = 7
+    const val SEND_SMS_PERMISSION_REQUEST_CODE = 8
 
     fun requestCallPhonePermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -51,6 +52,11 @@ object PermissionManager {
     fun requestWriteCallLogPermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.WRITE_CALL_LOG), WRITE_CALL_LOG_PERMISSION_REQUEST_CODE)
+        }
+    }
+    fun requestSendSMSPermission(activity: Activity) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.SEND_SMS), SEND_SMS_PERMISSION_REQUEST_CODE)
         }
     }
 }

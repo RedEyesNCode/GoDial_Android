@@ -100,6 +100,11 @@ class FragmentDialer : BaseFragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        setupRoomDb()
+    }
+
     private fun setupDialer() {
         // Initialize TelephonyManager
         telephonyManager = activity?.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager

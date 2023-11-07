@@ -1,9 +1,12 @@
 package com.redeyesncode.gozulix.ui.activity
 
 import android.annotation.SuppressLint
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.widget.ArrayAdapter
 import android.widget.SeekBar
 import androidx.lifecycle.lifecycleScope
@@ -116,7 +119,13 @@ class DisposeCallActivity : BaseActivity() {
     override fun onBackPressed() {
         showToast("NO BACK PRESS ALLOWED")
     }
+    fun sendSMS(context: Context, phoneNumber: String, message: String) {
+        val smsManager = SmsManager.getDefault()
+        val sentIntent = PendingIntent.getBroadcast(context, 0, Intent("SMS_SENT"), 0)
+        val deliveredIntent = PendingIntent.getBroadcast(context, 0, Intent("SMS_DELIVERED"), 0)
 
+        smsManager.sendTextMessage(phoneNumber, null, message, sentIntent, deliveredIntent)
+    }
     private fun initClicks() {
         binding.tvCallNumber.text = intent.getStringExtra("NUMBER")
         binding.ivClose.setOnClickListener {
@@ -160,6 +169,13 @@ class DisposeCallActivity : BaseActivity() {
             }
             showToast("Update Contact Record !")
 
+        }
+
+        binding.btnMessage.setOnClickListener {
+            sendSMS(this@DisposeCallActivity,intent.getStringExtra("NUMBER").toString(),"THIS_IS_GO_ZULIX_CRM_TEST")
+        }
+        binding.btnContact.setOnClickListener {
+            makePhoneCall(intent.getStringExtra("NUMBER").toString())
         }
 
 

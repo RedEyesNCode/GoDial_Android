@@ -70,7 +70,7 @@ class FragmentTasks : BaseFragment() {
             showMessageDialog("NO CONTACTS ARE ADDED","DIALER")
         }else {
             binding.recvContactEntity.adapter = ContactStatusAdapter(fragmentContext,pendingContacts)
-            binding.recvContactEntity.layoutManager =  GridLayoutManager(requireContext(),2)
+            binding.recvContactEntity.layoutManager =  LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         }
 
     }
