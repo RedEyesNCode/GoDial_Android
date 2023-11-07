@@ -1,5 +1,6 @@
 package com.redeyesncode.gozulix.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.redeyesncode.gozulix.ActivityUserContact
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.data.CalendarDate
 import com.redeyesncode.gozulix.databinding.FragmentTasksBinding
@@ -29,7 +31,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FragmentTasks.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentTasks : BaseFragment() {
+class FragmentTasks : BaseFragment(),ContactStatusAdapter.onClick {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -42,6 +44,13 @@ class FragmentTasks : BaseFragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onContactStatusClick(data: ContactEntity) {
+        val userContactIntent = Intent(fragmentContext, ActivityUserContact::class.java)
+
+        userContactIntent.putExtra("NUMBER",data.contactNumber.toString())
+        startActivity(userContactIntent)
     }
 
     override fun onCreateView(
@@ -69,7 +78,7 @@ class FragmentTasks : BaseFragment() {
         if(pendingContacts.isEmpty()){
             showMessageDialog("NO CONTACTS ARE ADDED","DIALER")
         }else {
-            binding.recvContactEntity.adapter = ContactStatusAdapter(fragmentContext,pendingContacts)
+            binding.recvContactEntity.adapter = ContactStatusAdapter(fragmentContext,pendingContacts,this)
             binding.recvContactEntity.layoutManager =  LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         }
 

@@ -91,18 +91,11 @@ class SaveContactDialog(var number:String): DialogFragment() {
                 if (contactDao.findContactByNumber(number) == null) {
                     lifecycleScope.launch {
                         contactDao.insertOrUpdate(newContact)
-
                     }
-
                 } else {
                     showToast("You have already saved this number to CRM.")
                 }
-
-
-
-
-                showToast("Updated Note !")
-                mdialog.dismiss()
+                showToast("CONTACT SAVE TO CRM !")
             }
 
 

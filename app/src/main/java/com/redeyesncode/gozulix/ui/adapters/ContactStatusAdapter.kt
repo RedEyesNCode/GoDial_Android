@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.redeyesncode.gozulix.databinding.ItemContactStatusBinding
 import com.redeyesncode.gozulix.room.ContactEntity
 
-class ContactStatusAdapter(var context: Context,var dataList:List<ContactEntity>):RecyclerView.Adapter<ContactStatusAdapter.MyViewholder>() {
+class ContactStatusAdapter(var context: Context,var dataList:List<ContactEntity>,var onClickActivity:ContactStatusAdapter.onClick):RecyclerView.Adapter<ContactStatusAdapter.MyViewholder>() {
 
     lateinit var binding:ItemContactStatusBinding
 
@@ -28,6 +28,9 @@ class ContactStatusAdapter(var context: Context,var dataList:List<ContactEntity>
             tvContactNumber.text = data.contactNumber.toString()
             tvStatus.text = "Status ${data.status.toString()}"
         }
+        holder.binding.mainCard.setOnClickListener {
+            onClickActivity.onContactStatusClick(data)
+        }
 
 
     }
@@ -35,6 +38,12 @@ class ContactStatusAdapter(var context: Context,var dataList:List<ContactEntity>
     override fun getItemCount(): Int {
 
         return dataList.size
+    }
+
+    interface onClick{
+
+        fun onContactStatusClick(data:ContactEntity)
+
     }
 
     class MyViewholder(var binding:ItemContactStatusBinding):RecyclerView.ViewHolder(binding.root)

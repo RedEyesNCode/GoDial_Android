@@ -122,13 +122,7 @@ class DisposeCallActivity : BaseActivity() {
     override fun onBackPressed() {
         showToast("NO BACK PRESS ALLOWED")
     }
-    fun sendSMS(context: Context, phoneNumber: String, message: String) {
-        val smsManager = SmsManager.getDefault()
-        val sentIntent = PendingIntent.getBroadcast(context, 0, Intent("SMS_SENT"), 0)
-        val deliveredIntent = PendingIntent.getBroadcast(context, 0, Intent("SMS_DELIVERED"), 0)
 
-        smsManager.sendTextMessage(phoneNumber, null, message, sentIntent, deliveredIntent)
-    }
     private fun initClicks() {
         binding.tvCallNumber.text = intent.getStringExtra("NUMBER")
         binding.ivClose.setOnClickListener {
@@ -224,5 +218,11 @@ class DisposeCallActivity : BaseActivity() {
             false
         }
     }
+    fun sendSMS(context: Context, phoneNumber: String, message: String) {
+        val smsManager = SmsManager.getDefault()
+        val sentIntent = PendingIntent.getBroadcast(context, 0, Intent("SMS_SENT"), 0)
+        val deliveredIntent = PendingIntent.getBroadcast(context, 0, Intent("SMS_DELIVERED"), 0)
 
+        smsManager.sendTextMessage(phoneNumber, null, message, sentIntent, deliveredIntent)
+    }
 }

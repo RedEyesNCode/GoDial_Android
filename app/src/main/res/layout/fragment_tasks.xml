@@ -33,7 +33,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recvContactEntity"
         android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
+        tools:itemCount="2"
         android:layout_below="@id/recvCalender"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
