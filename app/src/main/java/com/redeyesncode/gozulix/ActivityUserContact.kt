@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
 import android.telephony.SmsManager
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.redeyesncode.gozulix.databinding.ActivityUserContactBinding
 import com.redeyesncode.gozulix.databinding.FragmentUserContactInfoBinding
@@ -50,15 +52,12 @@ class ActivityUserContact : BaseActivity() {
         if(userContact==null){
             showToast("User Not Found in CRM ")
             finish()
-
-
-
         }else{
             binding.tvContactName.text = userContact?.contactName.toString()
             binding.tvContactNumber.text = userContact?.contactNumber.toString()
             val fragmentAdapter = UserContactPager(this,userContact?.contactNumber.toString())
             binding.rechargeViewPager.adapter = fragmentAdapter
-            binding.rechargeViewPager.offscreenPageLimit = 1
+            binding.rechargeViewPager.isSaveFromParentEnabled = false;
 
             TabLayoutMediator(binding.rechargeTabs, binding.rechargeViewPager) { tab, position ->
                 tab.text = when (position) {
@@ -67,6 +66,7 @@ class ActivityUserContact : BaseActivity() {
                     else -> ""
                 }
             }.attach()
+
         }
         binding.btnCall.setOnClickListener {
 

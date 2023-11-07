@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
 
         android:textColor="@color/black"
-        android:text="Contacts"
+        android:text="UNDER DEVELOPMENT"
         android:fontFamily="@font/raleway_bold"
         android:layout_height="wrap_content"/>
 

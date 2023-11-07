@@ -315,7 +315,7 @@
                 android:layout_width="@dimen/_165sdp"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_semibold"
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnLogout"
                 android:layout_margin="@dimen/_8sdp"
                 android:layout_gravity="center"
                 android:drawableTint="@color/white"

@@ -8,102 +8,119 @@
     android:background="@color/white"
     tools:context=".ui.fragments.UserContactInfoFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutUsername"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/_12sdp"
-        android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/green_3"
-        app:hintTextColor="@color/green_3"
-        app:hintEnabled="true"
-        android:textColorHint="@color/black"
-
-        app:boxStrokeWidth="@dimen/_2sdp"
-        app:startIconDrawable="@drawable/baseline_phone_24"> <!-- Set the start icon drawable -->
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtPhone"
-            android:focusable="false"
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Number" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutName"
-        android:layout_width="match_parent"
-        android:layout_margin="@dimen/_12sdp"
-        android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/green_3"
-        app:hintTextColor="@color/green_3"
-        app:hintEnabled="true"
-        android:textColorHint="@color/black"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutUsername"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_12sdp"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/green_3"
+                app:hintTextColor="@color/green_3"
+                app:hintEnabled="true"
+                android:textColorHint="@color/black"
 
-        app:boxStrokeWidth="@dimen/_2sdp"
-        app:startIconDrawable="@drawable/baseline_phone_24"> <!-- Set the start icon drawable -->
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:startIconDrawable="@drawable/baseline_phone_24"> <!-- Set the start icon drawable -->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtContactName"
-            android:focusable="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contact Name" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Number" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutName"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_12sdp"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/green_3"
+                app:hintTextColor="@color/green_3"
+                app:hintEnabled="true"
+                android:textColorHint="@color/black"
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_margin="@dimen/_15sdp"
-        android:layout_height="wrap_content"
-        android:max="100"
-        android:padding="@dimen/_15sdp"
-        android:thumb="@drawable/thumb_10"
-        android:progressDrawable="@drawable/seekbar"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:startIconDrawable="@drawable/baseline_phone_24"> <!-- Set the start icon drawable -->
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-    <TextView
-        android:id="@+id/tvLeadScore"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:fontFamily="@font/sn_regular"
-        android:text="Lead Score :10 %"
-        android:textColor="@color/yellow"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtContactName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact Name" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_15sdp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:padding="@dimen/_15sdp"
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                android:thumb="@drawable/thumb_10"
+                android:progressDrawable="@drawable/seekbar"
 
-        android:background="@drawable/background_yellow_button"
-        android:drawableStart="@drawable/baseline_save_24"
-        android:fontFamily="@font/raleway_semibold"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:text="SAVE"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLeadScore" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            <TextView
+                android:id="@+id/tvLeadScore"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/sn_regular"
+                android:text="Lead Score :10 %"
+                android:textColor="@color/yellow"
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:background="@drawable/background_green_button"
-        android:drawableStart="@drawable/baseline_note_add_24"
-        android:text="NOTE"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="@+id/seekBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/background_yellow_button"
+                android:drawableStart="@drawable/baseline_save_24"
+                android:fontFamily="@font/raleway_semibold"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:text="SAVE"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLeadScore" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/background_green_button"
+                android:drawableStart="@drawable/baseline_note_add_24"
+                android:text="NOTE"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
 
 
 

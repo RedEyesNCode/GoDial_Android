@@ -2,14 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
-    android:background="@color/green_3"
     tools:context=".ui.fragments.UserContactHistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/recvCallHistory"
+        tools:itemCount="4"
+
+        tools:listitem="@layout/item_contact_step_history"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
