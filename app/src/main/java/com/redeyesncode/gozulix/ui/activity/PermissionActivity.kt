@@ -30,6 +30,11 @@ class PermissionActivity : BaseActivity(),PermissionAdapter.onPermission {
 
         }else{
             //MICROPHONE
+            showToast("AUDIO & STORAGE")
+
+            PermissionManager.requestAudioPermission(this)
+
+
         }
 
     }
@@ -89,13 +94,11 @@ class PermissionActivity : BaseActivity(),PermissionAdapter.onPermission {
                     showSnackbar("PERMISSION IS DENIED")
                 }
             }
-
             PermissionManager.ANSWER_PHONE_CALLS_PERMISSION_REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
                     showSnackbar("PERMISSION IS GRANTED")
                     PermissionManager.requestReadCallLogPermission(this)
-
                 } else {
                     // ANSWER_PHONE_CALLS permission denied, handle accordingly
                     showSnackbar("PERMISSION IS DENIED")
@@ -108,6 +111,39 @@ class PermissionActivity : BaseActivity(),PermissionAdapter.onPermission {
                     showSnackbar("PERMISSION IS GRANTED")
                     PermissionManager.requestWriteCallLogPermission(this)
 
+                } else {
+                    // ANSWER_PHONE_CALLS permission denied, handle accordingly
+                    showSnackbar("PERMISSION IS DENIED")
+
+                }
+            }
+            PermissionManager.AUDIO_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
+                    showSnackbar("PERMISSION IS GRANTED")
+                    PermissionManager.requestStoragePermission(this)
+                } else {
+                    // ANSWER_PHONE_CALLS permission denied, handle accordingly
+                    showSnackbar("PERMISSION IS DENIED")
+
+                }
+            }
+            PermissionManager.STORAGE_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
+                    showSnackbar("PERMISSION IS GRANTED")
+                    PermissionManager.requestProcessCallPermission(this)
+                } else {
+                    // ANSWER_PHONE_CALLS permission denied, handle accordingly
+                    showSnackbar("PERMISSION IS DENIED")
+
+                }
+            }
+            PermissionManager.PROCESS_CALL_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
+                    showSnackbar("PERMISSION IS GRANTED")
+                    PermissionManager.requestProcessCallPermission(this)
                 } else {
                     // ANSWER_PHONE_CALLS permission denied, handle accordingly
                     showSnackbar("PERMISSION IS DENIED")

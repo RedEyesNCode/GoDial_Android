@@ -20,6 +20,7 @@ import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.FragmentDialerBinding
 import com.redeyesncode.gozulix.room.ContactDatabase
 import com.redeyesncode.gozulix.room.ContactEntity
+import com.redeyesncode.gozulix.service.CallRecordingService
 import com.redeyesncode.gozulix.ui.activity.DialerActivity
 import com.redeyesncode.gozulix.ui.activity.DisposeCallActivity
 import com.redeyesncode.gozulix.ui.activity.SelectContactsActivity
@@ -100,10 +101,10 @@ class FragmentDialer : BaseFragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        setupRoomDb()
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        setupRoomDb()
+//    }
 
     private fun setupDialer() {
         // Initialize TelephonyManager
@@ -113,18 +114,8 @@ class FragmentDialer : BaseFragment() {
         phoneStateListener = object : PhoneStateListener() {
             override fun onCallStateChanged(state: Int, incomingNumber: String?) {
                 showToast(state.toString())
-                if (previousCallState == TelephonyManager.CALL_STATE_OFFHOOK &&
-                    state == TelephonyManager.CALL_STATE_IDLE
-                ) {
-                    // Call ended, start your activity here
-                    val intent = Intent(fragmentContext,DisposeCallActivity::class.java)
-                    intent.putExtra("NUMBER",incomingNumber)
-                    startActivity(intent)
-                }else if(state==TelephonyManager.CALL_STATE_RINGING){
-                    // Call ended, start your activity here
-                    val intent = Intent(fragmentContext,DisposeCallActivity::class.java)
-                    intent.putExtra("NUMBER",incomingNumber)
-                    startActivity(intent)
+                if(state==TelephonyManager.CALL_STATE_RINGING){
+                    showToast("CALL_STATE_RINGING")
                 }
 
                 previousCallState = state
@@ -133,10 +124,15 @@ class FragmentDialer : BaseFragment() {
 
     }
     fun makePhoneCall(phoneNumber: String) {
+        val serviceIntent = Intent(fragmentContext, CallRecordingService::class.java)
+        activity?.startActivity(serviceIntent)
         // Check for the CALL_PHONE permission before making the call
         val callIntent = Intent(Intent.ACTION_CALL)
         callIntent.data = Uri.parse("tel:$phoneNumber")
         startActivity(callIntent)
+
+
+
     }
     private fun initClicks() {
         binding.fabDialer.setOnClickListener {

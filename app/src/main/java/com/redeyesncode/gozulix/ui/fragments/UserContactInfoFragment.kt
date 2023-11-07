@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.lifecycle.lifecycleScope
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.FragmentUserContactInfoBinding
@@ -47,10 +48,40 @@ class UserContactInfoFragment : BaseFragment() {
 
         initClicks()
         setupRoomDb()
+        setupEmojiSeekbar()
 
         return binding.root
     }
+    private fun setupEmojiSeekbar() {
 
+        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                // Calculate the emoji index based on the progress
+
+                binding.tvLeadScore.text = "Lead Score ${progress}%"
+
+                val emojiIndex = progress / 10 // Assuming 10% intervals
+
+                // Get the corresponding emoji resource ID
+                val emojiResourceId = getEmojiResource(emojiIndex)
+
+                // Set the emoji as the thumb drawable
+                val thumbDrawable = resources.getDrawable(emojiResourceId)
+                binding.seekBar.thumb = thumbDrawable
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // Not needed for this example
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // Not needed for this example
+            }
+        })
+
+
+
+    }
     private fun setupRoomDb() {
         val contactDatabase = ContactDatabase.getDatabase(fragmentContext)
         val contactDao = contactDatabase.contactDao()
