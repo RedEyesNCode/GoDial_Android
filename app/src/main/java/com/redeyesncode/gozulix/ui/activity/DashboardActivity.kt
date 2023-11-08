@@ -1,15 +1,12 @@
 package com.redeyesncode.gozulix.ui.activity
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.Settings
-import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.redeyesncode.gozulix.R
 import com.redeyesncode.gozulix.databinding.ActivityDashboardBinding
+import com.redeyesncode.gozulix.service.CallRecorderActivity
 import com.redeyesncode.gozulix.service.CallRecordingService
 import com.redeyesncode.redbet.base.BaseActivity
 
@@ -28,7 +25,7 @@ class DashboardActivity : BaseActivity() {
 
 
         binding.tvTitle.setOnClickListener {
-            startActivity(Intent(this@DashboardActivity,CallRecorderActivity::class.java))
+            startActivity(Intent(this@DashboardActivity, CallRecorderActivity::class.java))
 
         }
 

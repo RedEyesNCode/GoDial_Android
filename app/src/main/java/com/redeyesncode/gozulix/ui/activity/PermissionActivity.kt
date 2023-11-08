@@ -154,10 +154,13 @@ class PermissionActivity : BaseActivity(),PermissionAdapter.onPermission {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // ANSWER_PHONE_CALLS permission granted, you can now answer phone calls
                     showSnackbar("PERMISSION IS GRANTED")
+                    PermissionManager.requestCaptureAudioOutput(this)
+
                 } else {
                     // ANSWER_PHONE_CALLS permission denied, handle accordingly
                     showSnackbar("PERMISSION IS DENIED MANAGE STORAGE")
                     PermissionManager.requestReadStorage(this)
+                    PermissionManager.requestCaptureAudioOutput(this)
 
                 }
             }
