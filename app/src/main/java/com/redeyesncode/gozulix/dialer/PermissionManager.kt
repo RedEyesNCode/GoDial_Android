@@ -19,6 +19,8 @@ object PermissionManager {
     const val AUDIO_PERMISSION_REQUEST_CODE = 9
     const val STORAGE_PERMISSION_REQUEST_CODE = 10
     const val PROCESS_CALL_REQUEST_CODE = 11
+    const val MANAGE_STORAGE_REQUEST_CODE = 12
+    const val READ_STORAGE_REQUEST_CODE = 13
 
     fun requestCallPhonePermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -74,9 +76,18 @@ object PermissionManager {
         }
     }
     fun requestProcessCallPermission(activity: Activity) {
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.PROCESS_OUTGOING_CALLS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.PROCESS_OUTGOING_CALLS), PROCESS_CALL_REQUEST_CODE)
         }
     }
-
+    fun requestManageStoragePermission(activity: Activity) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.MANAGE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.MANAGE_EXTERNAL_STORAGE), MANAGE_STORAGE_REQUEST_CODE)
+        }
+    }
+    fun requestReadStorage(activity: Activity) {
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), READ_STORAGE_REQUEST_CODE)
+        }
+    }
 }

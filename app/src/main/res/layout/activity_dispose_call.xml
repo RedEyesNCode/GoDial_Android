@@ -70,6 +70,7 @@
         android:id="@+id/tvContactName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:layout_centerInParent="true"
         android:fontFamily="@font/sn_medium"
         android:text="\u0026"

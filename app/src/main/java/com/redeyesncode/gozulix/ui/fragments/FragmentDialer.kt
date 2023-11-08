@@ -21,6 +21,7 @@ import com.redeyesncode.gozulix.databinding.FragmentDialerBinding
 import com.redeyesncode.gozulix.room.ContactDatabase
 import com.redeyesncode.gozulix.room.ContactEntity
 import com.redeyesncode.gozulix.service.CallRecordingService
+import com.redeyesncode.gozulix.ui.activity.DashboardActivity
 import com.redeyesncode.gozulix.ui.activity.DialerActivity
 import com.redeyesncode.gozulix.ui.activity.DisposeCallActivity
 import com.redeyesncode.gozulix.ui.activity.SelectContactsActivity
@@ -124,12 +125,18 @@ class FragmentDialer : BaseFragment() {
 
     }
     fun makePhoneCall(phoneNumber: String) {
-        val serviceIntent = Intent(fragmentContext, CallRecordingService::class.java)
-        activity?.startActivity(serviceIntent)
+        (requireActivity() as DashboardActivity).startRecordingService()
         // Check for the CALL_PHONE permission before making the call
-        val callIntent = Intent(Intent.ACTION_CALL)
-        callIntent.data = Uri.parse("tel:$phoneNumber")
-        startActivity(callIntent)
+
+        showLoadingDialog()
+        Handler().postDelayed(Runnable {
+            dismissLoadingDialog()
+            val callIntent = Intent(Intent.ACTION_CALL)
+            callIntent.data = Uri.parse("tel:$phoneNumber")
+            startActivity(callIntent)
+
+        },3000)
+
 
 
 

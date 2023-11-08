@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".ui.activity.CallRecorderActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_semibold"
+            android:id="@+id/btnStart"
+            android:layout_margin="@dimen/_8sdp"
+
+            android:text="START SERVICE"
+            android:textColor="@color/white"
+            android:background="@drawable/background_green_card"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_semibold"
+            android:layout_margin="@dimen/_8sdp"
+
+            android:text="STOP SERVICE"
+            android:id="@+id/btnCancel"
+            android:textColor="@color/green_3"
+            android:background="@drawable/background_white_rounded"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>
